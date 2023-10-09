@@ -1,0 +1,78 @@
+:root {
+    --bg-primary: #ffff;
+    --bg-secondary: #F1F3FF;
+
+    --primary-color: #000000;
+    --secondary-color: #FFFFFF;
+    
+    --border-color: #D0D0D0;
+
+    --btn-primary: #5CB85F;
+
+    --font-title: 36px;
+    --font-subtitle: 24px;
+    --font-paragraph: 15px;
+
+    --font-weight-bold: 700;
+}
+
+body {
+    font-family: Helvetica;
+}
+
+p {
+    font-size: var(--font-paragraph);
+}
+
+.mt-4 {
+    margin-top: 20px;
+}
+
+.nav-fonts,
+.text-paragraph {
+    font-size: var(--font-paragraph);
+}
+
+.text-title {
+    font-size: var(--font-title);
+}
+
+.bg-home {
+    background-color: var(--bg-secondary);
+}
+
+.offcanvas.show:not(.hiding), 
+.offcanvas.showing {
+    width: 70%;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.list-services .text-paragraph {
+    margin: 10px 0;
+    list-style: none;
+}
+
+.why-us-card {
+    border: 1px solid var(--border-color);
+    height: 100%;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.why-us-card h5 {
+    font-weight: var(--font-weight-bold);
+}
+
+
+@media screen and (max-width: 991px) {
+    .list-services{
+        padding-left: 20px;
+    }
+}

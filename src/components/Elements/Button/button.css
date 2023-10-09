@@ -1,0 +1,12 @@
+.btn-default {
+    background-color: var(--btn-primary);
+    padding: 8px 12px;
+    color: var(--secondary-color);
+    border: none;
+    font-weight: 700;
+    height: 36px;
+    font-size: var(--font-paragraph);
+    align-items: center;
+    display: flex;
+    border-radius: 3px;
+}
