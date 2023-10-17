@@ -4,6 +4,8 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 const Testimonial = () => {
+
+   // Logic responsive view
    const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 991);
 
    const usersTestimonials = [
@@ -40,9 +42,16 @@ const Testimonial = () => {
    const renderDesktopView = () => {
       return (
          <>
-            <Splide options={{ rewind: true }} aria-label="testimonialSlider">
-               {usersTestimonials.map((user) => (
-                  <SplideSlide key={user.name}>
+            <Splide 
+               options = {{ 
+                  rewind: true,
+                  perPage: 3,
+                  type: 'loop'
+               }} 
+               aria-label="testimonialSlider"
+            >
+               {usersTestimonials.map((user, idx) => (
+                  <SplideSlide key={idx}>
                      <div className="user-testimonials">
                         <h1>{user.name}</h1>
                         <p>{user.description}</p>
