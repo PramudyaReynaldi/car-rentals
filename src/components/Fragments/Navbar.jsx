@@ -1,9 +1,28 @@
 /* eslint-disable react/no-unknown-property */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Elements/Button";
 
 const Navbar = (props) => {
    const { children, className } = props;
+
+   const [ scrollY, setScrollY ] = useState(0);
+
+   const handleScrollY = () => {
+      setScrollY(window.scrollY);
+   };
+
+   useEffect(() => {
+      window.addEventListener('scroll', handleScrollY);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScrollY);
+      };
+   }, []);
+
+   const backgroundStyle = {
+      background: scrollY < 100 ? 'var(--bg-secondary)' : 'var(--bg-primary)',
+      transition: 'background 0.5s',
+   };
 
    const Links = [
       { name: "Our Services", href: "#" },
@@ -15,7 +34,7 @@ const Navbar = (props) => {
    return (
       <>
          <div className={className}>
-            <nav className="navbar navbar-expand-lg bg-home fixed-top">
+            <nav className="navbar navbar-expand-lg bg-home fixed-top" style={backgroundStyle}>
                <div className="container">
                   <a className="navbar-brand" href="#">
                      Car rentals
