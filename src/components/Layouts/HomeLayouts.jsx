@@ -16,10 +16,12 @@ export const HomeLayouts = () => {
             <div className="mt-5">
                <WhyUsCard />
             </div>
+         </section>
+         <div className="container">
             <div className="mt-5">
                <Testimonial />
             </div>
-         </section>
+         </div>
       </div>
    );
 };

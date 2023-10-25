@@ -70,6 +70,20 @@ p {
     font-weight: var(--font-weight-bold);
 }
 
+.splide__arrow--prev {
+    left: 40%;
+    top: 13em;
+}
+
+.splide__arrow--next {
+    right: 45%;
+    top: 13em;
+}
+
+.user-testimonials {
+    background-color: var(--bg-secondary);
+}
+
 
 @media screen and (max-width: 991px) {
     .list-services{
