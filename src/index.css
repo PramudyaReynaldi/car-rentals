@@ -72,21 +72,45 @@ p {
 
 .splide__arrow--prev {
     left: 40%;
-    top: 13em;
+    top: 20em;
 }
 
 .splide__arrow--next {
     right: 45%;
-    top: 13em;
+    top: 20em;
 }
 
 .user-testimonials {
     background-color: var(--bg-secondary);
+    max-width: 619px;
 }
 
+.user-testimonials-mobile {
+    background-color: var(--bg-secondary);
+    padding: 43px 20px;
+    border-radius: 8px;
+}
+
+.splide__arrow:hover:not(:disabled) {
+    background-color: var(--btn-primary);
+}
+
+.splide__arrow svg:hover {
+    fill: var(--secondary-color);
+}
 
 @media screen and (max-width: 991px) {
     .list-services{
         padding-left: 20px;
+    }    
+
+    .splide__arrow--prev {
+        left: 29%;
+        top: 25em;
+    }
+    
+    .splide__arrow--next {
+        right: 31%;
+        top: 25em;
     }
 }
