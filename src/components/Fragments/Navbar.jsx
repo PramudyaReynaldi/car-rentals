@@ -25,7 +25,7 @@ const Navbar = (props) => {
    };
 
    const Links = [
-      { name: "Our Services", href: "#" },
+      { name: "Our Services", href: "#ourServices" },
       { name: "Why Us", href: "#whyUs" },
       { name: "Testimonial", href: "#testimonial" },
       { name: "FAQ", href: "#faq" },
