@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import imgTesti1 from "../../assets/images/img_testi1.png";
 import imgTesti2 from "../../assets/images/img_testi2.png";
+import imgTesti3 from "../../assets/images/img_testi3.jpg";
 import iconRate from "../../assets/icons/rate.png";
 import "@splidejs/react-splide/css";
 
@@ -18,14 +19,16 @@ const Testimonial = () => {
          rate: iconRate,
       },
       {
-         name: "John Doe",
+         name: "Jessica",
          description: "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”",
          image: imgTesti2,
          rate: iconRate,
       },
       {
-         name: "John Doe",
+         name: "William",
          description: "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”",
+         image: imgTesti3,
+         rate: iconRate,
       },
    ];
 
@@ -48,6 +51,7 @@ const Testimonial = () => {
                rewind: true,
                perPage: 1,
                type: "loop",
+               pagination: false,
             }}
             aria-label="testimonialSlider"
          >
@@ -55,8 +59,10 @@ const Testimonial = () => {
                <SplideSlide key={idx}>
                   <div className="user-testimonials-mobile">
                      <div className="d-flex flex-column justify-content-center align-items-center">
-                        <img src={user.image} width={80} />
-                        <p>{user.description}</p>
+                        <img src={user.image} className="img-fluid rounded-circle" width={80} />
+                        <img src={iconRate} className="img-fluid mt-3" />
+                        <p className="pt-3">{user.description}</p>
+                        <p className="fw-bold">{user.name}</p>
                      </div>
                   </div>
                </SplideSlide>
@@ -82,7 +88,7 @@ const Testimonial = () => {
                   <SplideSlide key={idx}>
                      <div className="user-testimonials">
                         <div className="d-flex align-items-center p-4">
-                           <img src={user.image} className="img-fluid" />
+                           <img src={user.image} className="img-fluid rounded-circle" width={80} />
                            <div className="ms-3">
                               <img src={iconRate} className="img-fluid mb-3" />
                               <p>{user.description}</p>
@@ -97,7 +103,17 @@ const Testimonial = () => {
       );
    };
 
-   return <>{isMobileView ? renderMobileView() : renderDesktopView()}</>;
+   return (
+      <>
+         <div id="testimonial">
+            <div className="testimonials text-center py-5">
+               <h3 className="text-subtitle fw-semibold">Testimonial</h3>
+               <p className="text-paragraph">Berdasarkan ulasan para pelanggan</p>
+            </div>
+            {isMobileView ? renderMobileView() : renderDesktopView()}
+         </div>
+      </>
+   ) 
 };
 
 export default Testimonial;

@@ -29,16 +29,22 @@ const WhyUsCard = () => {
 
     return (
         <>
-            <div className="row mt-5">
-                {whyUsList.map((item) => (
-                    <div key={item.title} className="col-lg-3 col-12">
-                        <div className="why-us-card">
-                            <img src={item.icon} alt="icon" />
-                            <h5 className="mt-3">{item.title}</h5>
-                            <p>{item.body}</p>
-                        </div>
+            <div id="whyUs">
+                <div className="row mt-5">
+                    <div className="why-us-title py-4">
+                        <h3 className="text-subtitle fw-semibold">Why Us?</h3>
+                        <p>Mengapa harus pilih Binar Car Rental?</p>
                     </div>
-                ))}
+                    {whyUsList.map((item) => (
+                        <div key={item.title} className="col-lg-3 col-12 my-2 my-lg-0">
+                            <div className="why-us-card">
+                                <img src={item.icon} alt="icon" />
+                                <h5 className="mt-3">{item.title}</h5>
+                                <p>{item.body}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     );
