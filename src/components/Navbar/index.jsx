@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useState, useEffect } from "react";
-import Button from "../Elements/Button";
+import Button from "../Button";
 
 const Navbar = (props) => {
    const { children, className } = props;

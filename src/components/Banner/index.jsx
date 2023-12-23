@@ -1,10 +1,12 @@
 import React from "react";
 import carImage from "../../assets/images/img_car.png";
-import Button from "../Elements/Button";
+import Button from "../Button";
 
-const Banner = () => {
+const Banner = (props) => {
+   const { className } = props;
+
    return (
-      <div className="row pt-lg-5">
+      <div className={`row pt-lg-5 ${className}`}>
          <div className="col-lg-6 col-12 mt-lg-4 mt-0">
             <div className="text-title fw-semibold">
                Sewa & Rental Mobil Terbaik di kawasan Tangerang

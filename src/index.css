@@ -1,6 +1,7 @@
 :root {
     --bg-primary: #ffff;
     --bg-secondary: #F1F3FF;
+    --bg-accent: #0D28A6;
 
     --primary-color: #000000;
     --secondary-color: #FFFFFF;
@@ -41,8 +42,7 @@ p {
     background-color: var(--bg-secondary);
 }
 
-.offcanvas.show:not(.hiding), 
-.offcanvas.showing {
+.offcanvas.show:not(.hiding), .offcanvas.showing {
     width: 70%;
 }
 
@@ -70,12 +70,12 @@ p {
     font-weight: var(--font-weight-bold);
 }
 
-.splide__arrow--prev {
+.splide__arrow.splide__arrow--prev {
     left: 40%;
     top: 20em;
 }
 
-.splide__arrow--next {
+.splide__arrow.splide__arrow--next {
     right: 45%;
     top: 20em;
 }
