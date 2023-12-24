@@ -1,3 +1,4 @@
+import { Element } from "react-scroll";
 import iconComplete from "../../assets/icons/icon_complete.png";
 import iconPending from "../../assets/icons/icon_24hrs.png";
 import iconPrice from "../../assets/icons/icon_price.png";
@@ -29,7 +30,7 @@ const WhyUsCard = () => {
 
     return (
         <>
-            <div id="whyUs">
+            <Element id="whyUs">
                 <div className="row mt-5">
                     <div className="why-us-title py-4">
                         <h3 className="text-subtitle fw-semibold">Why Us?</h3>
@@ -45,7 +46,7 @@ const WhyUsCard = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </Element>
         </>
     );
 }

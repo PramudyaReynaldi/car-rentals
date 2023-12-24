@@ -1,5 +1,6 @@
 import ceklisIcon from "../../assets/icons/ceklis.png";
 import imgServices from "../../assets/images/img_service.png";
+import { Element } from "react-scroll";
 
 const Services = () => {
    const Lists = [
@@ -12,7 +13,7 @@ const Services = () => {
 
    return (
       <>
-         <div id="ourServices">
+         <Element name="ourServices">
             <div className="row">
                <div className="col-lg-6 col-12">
                   <img
@@ -47,7 +48,7 @@ const Services = () => {
                   </ul>
                </div>
             </div>
-         </div>
+         </Element>
       </>
    );
 };

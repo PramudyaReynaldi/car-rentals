@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Element } from "react-scroll";
 import imgTesti1 from "../../assets/images/img_testi1.png";
 import imgTesti2 from "../../assets/images/img_testi2.png";
 import imgTesti3 from "../../assets/images/img_testi3.jpg";
@@ -105,13 +106,13 @@ const Testimonial = () => {
 
    return (
       <>
-         <div id="testimonial">
+         <Element id="testimonial">
             <div className="testimonials text-center py-5">
                <h3 className="text-subtitle fw-semibold">Testimonial</h3>
                <p className="text-paragraph">Berdasarkan ulasan para pelanggan</p>
             </div>
             {isMobileView ? renderMobileView() : renderDesktopView()}
-         </div>
+         </Element>
       </>
    ) 
 };

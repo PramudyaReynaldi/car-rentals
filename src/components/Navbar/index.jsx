@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useState, useEffect } from "react";
+import { Link } from "react-scroll";
 import Button from "../Button";
 
 const Navbar = (props) => {
@@ -25,10 +26,10 @@ const Navbar = (props) => {
    };
 
    const Links = [
-      { name: "Our Services", href: "#ourServices" },
-      { name: "Why Us", href: "#whyUs" },
-      { name: "Testimonial", href: "#testimonial" },
-      { name: "FAQ", href: "#faq" },
+      { name: "Our Services", href: "ourServices" },
+      { name: "Why Us", href: "whyUs" },
+      { name: "Testimonial", href: "testimonial" },
+      { name: "FAQ", href: "faq" },
    ];
 
    return (
@@ -74,13 +75,16 @@ const Navbar = (props) => {
                         {Links.map((link) => (
                            <ul key={link.name} className="navbar-nav mx-2">
                               <li className="nav-item">
-                                 <a
-                                    href={link.href}
-                                    className="nav-link active nav-fonts"
+                                 <Link
+                                    to={link.href}
+                                    smooth={true}
+                                    duration={500}
+                                    className="nav-link active nav-fonts cursor-pointer"
                                     aria-current="page"
+                                    style={{ cursor: "pointer" }}
                                  >
                                     {link.name}
-                                 </a>
+                                 </Link>
                               </li>
                            </ul>
                         ))}
