@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import logoCar from "../../assets/images/logo_car.png";
 import Button from "../Button";
 
 const Navbar = (props) => {
@@ -38,7 +39,7 @@ const Navbar = (props) => {
             <nav className="navbar navbar-expand-lg bg-home fixed-top" style={backgroundStyle}>
                <div className="container">
                   <a className="navbar-brand" href="#">
-                     Car rentals
+                     <img src={logoCar} alt="logo_car" className="car-logo" />
                   </a>
                   <button
                      className="navbar-toggler"

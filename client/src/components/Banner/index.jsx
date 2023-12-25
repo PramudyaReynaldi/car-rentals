@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 import carImage from "../../assets/images/img_car.png";
 import Button from "../Button";
 
 const Banner = (props) => {
    const { className } = props;
+   const [isLoggedIn, setIsLoggedIn] = useState();
+
+   const handleLogin = (event) => {
+      event.preventDefault();
+
+      if(isLoggedIn) {
+         setIsLoggedIn(true);
+         alert("Login Successful");
+      } else {
+         setIsLoggedIn(false);
+         Swal.fire({
+            title: 'Error!',
+            text: 'Anda harus login terlebih dahulu',
+            icon: 'error',
+            confirmButtonText: 'Login',
+         }) 
+      }
+   }
 
    return (
-      <div className={`row pt-lg-5 ${className}`}>
+      <div className={`row pt-lg-5 pt-3 ${className}`}>
          <div className="col-lg-6 col-12 mt-lg-4 mt-0">
             <div className="text-title fw-semibold">
                Sewa & Rental Mobil Terbaik di kawasan Tangerang
@@ -16,7 +35,7 @@ const Banner = (props) => {
                kualitas terbaik dengan harga terjangkau. Selalu siap melayani
                kebutuhanmu untuk sewa mobil selama 24 jam.
             </div>
-            <Button styles="mt-3 mb-lg-0 mb-4">Mulai Sewa Mobil</Button>
+            <Button styles="mt-3 mb-lg-0 mb-4" onClick={handleLogin}>Mulai Sewa Mobil</Button>
          </div>
          <div className="col-lg-6 col-12">
             <img src={carImage} alt="Car rental" className="img-fluid" />

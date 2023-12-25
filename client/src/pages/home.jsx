@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import ServicesComponent from "../components/ServicesComponent";
 import WhyUsCard from "../components/WhyUsCard";
 import Testimonial from "../components/Testimonial";
+import CardBanner from "../components/CardBanner";
 
 const HomePage = () => {
     return (
@@ -23,19 +24,16 @@ const HomePage = () => {
             <div className="container">
                 <div className="home-content-wrapper">
                     <div className="our-service-content">
-                        <div className="mt-5">
-                            <ServicesComponent />
-                        </div>
+                        <ServicesComponent />
                     </div>
                     <div className="why-us-content">
-                        <div className="mt-5">
-                            <WhyUsCard />
-                        </div>
+                        <WhyUsCard />
                     </div>
                     <div className="testimonial-content">
-                        <div className="mt-5">
-                            <Testimonial />
-                        </div>
+                        <Testimonial />
+                    </div>
+                    <div className="card-banner-content">
+                        <CardBanner />
                     </div>
                 </div>
             </div>

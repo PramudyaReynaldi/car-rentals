@@ -50,6 +50,12 @@ p {
     border: none;
 }
 
+.car-logo {
+    width: 46px;
+    position: absolute;
+    top: 0;
+}
+
 .navbar-toggler:focus {
     box-shadow: none;
 }
@@ -99,18 +105,42 @@ p {
     fill: var(--secondary-color);
 }
 
+.our-service-content, .why-us-content, .testimonial-content {
+    padding-top: 5rem;
+}
+
+.card-banner-content {
+    padding-top: 15rem;
+}
+
+.card-banner-wrapper {
+    background-color: var(--bg-accent);
+    color: var(--secondary-color);
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 6rem;
+}
+
 @media screen and (max-width: 991px) {
     .list-services{
         padding-left: 20px;
     }    
 
-    .splide__arrow--prev {
+    .splide__arrow.splide__arrow--prev {
         left: 29%;
         top: 25em;
     }
     
-    .splide__arrow--next {
+    .splide__arrow.splide__arrow--next {
         right: 31%;
         top: 25em;
+    }
+
+    .card-banner-content {
+        padding-top: 6rem;
     }
 }
