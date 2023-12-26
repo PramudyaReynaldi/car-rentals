@@ -1,25 +1,43 @@
-/* eslint-disable react/no-unknown-property */
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 import logoCar from "../../assets/images/logo_car.png";
 import Button from "../Button";
 
 const Navbar = (props) => {
    const { children, className } = props;
-
    const [ scrollY, setScrollY ] = useState(0);
+   const [token, setToken] = useState('');
+
+   const navigate = useNavigate();
+
+   useEffect(() => {
+      refreshToken();
+
+      window.addEventListener('scroll', handleScrollY);
+
+      return () => {
+        window.removeEventListener('scroll', handleScrollY);
+      };
+   }, []);
 
    const handleScrollY = () => {
       setScrollY(window.scrollY);
    };
 
-   useEffect(() => {
-      window.addEventListener('scroll', handleScrollY);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScrollY);
-      };
-   }, []);
+   const refreshToken = async () => {
+      try {
+         const response = await axios.get('http://localhost:3000/token');
+         setToken(response.data.accessToken);
+         const decoded = jwtDecode (response.data.accessToken);
+         console.log(decoded);
+      } catch (error) {
+         console.log(error.response.data);   
+      }
+   }
 
    const backgroundStyle = {
       background: scrollY < 100 ? 'var(--bg-secondary)' : 'var(--bg-primary)',
@@ -76,7 +94,7 @@ const Navbar = (props) => {
                         {Links.map((link) => (
                            <ul key={link.name} className="navbar-nav mx-2">
                               <li className="nav-item">
-                                 <Link
+                                 <ScrollLink
                                     to={link.href}
                                     smooth={true}
                                     duration={500}
@@ -85,11 +103,13 @@ const Navbar = (props) => {
                                     style={{ cursor: "pointer" }}
                                  >
                                     {link.name}
-                                 </Link>
+                                 </ScrollLink>
                               </li>
                            </ul>
                         ))}
-                        <Button>Register</Button>
+                        <Link to={"/login"} className="text-decoration-none">
+                           <Button>Login</Button>
+                        </Link>
                      </div>
                   </div>
                </div>

@@ -13,7 +13,7 @@ const CardBanner = () => {
                         </p>
                     </div>
                     <div className="card-banner-button">
-                        <Button styles="mt-3 mb-lg-0 mb-4">Mulai Sewa Mobil</Button>
+                        <Button styles="mb-lg-0">Mulai Sewa Mobil</Button>
                     </div>
                 </div>
             </div>

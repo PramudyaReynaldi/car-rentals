@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import carImage from "../../assets/images/img_car.png";
 import Button from "../Button";
+import { showAlertError } from "../Alert";
 
 const Banner = (props) => {
    const { className } = props;
@@ -15,12 +15,7 @@ const Banner = (props) => {
          alert("Login Successful");
       } else {
          setIsLoggedIn(false);
-         Swal.fire({
-            title: 'Error!',
-            text: 'Anda harus login terlebih dahulu',
-            icon: 'error',
-            confirmButtonText: 'Login',
-         }) 
+         showAlertError("Silahkan login terlebih dahulu", "Login");
       }
    }
 

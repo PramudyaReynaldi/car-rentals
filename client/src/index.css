@@ -125,6 +125,10 @@ p {
     padding: 4rem 6rem;
 }
 
+.card-banner-button {
+    margin-top: 16px;
+}
+
 @media screen and (max-width: 991px) {
     .list-services{
         padding-left: 20px;
@@ -132,15 +136,55 @@ p {
 
     .splide__arrow.splide__arrow--prev {
         left: 29%;
-        top: 25em;
+        top: 26em;
     }
     
     .splide__arrow.splide__arrow--next {
         right: 31%;
-        top: 25em;
+        top: 26em;
     }
 
     .card-banner-content {
         padding-top: 6rem;
+    }
+
+    .card-banner-wrapper {
+        padding: 3rem 1rem;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .splide__arrow.splide__arrow--prev {
+        left: 29%;
+        top: 27em;
+    }
+    
+    .splide__arrow.splide__arrow--next {
+        right: 31%;
+        top: 27em;
+    }
+}
+
+@media screen and (max-width: 335px) {
+    .splide__arrow.splide__arrow--prev {
+        left: 29%;
+        top: 29em;
+    }
+    
+    .splide__arrow.splide__arrow--next {
+        right: 31%;
+        top: 29em;
+    }
+}
+
+@media screen and (max-width: 335px) {
+    .splide__arrow.splide__arrow--prev {
+        left: 29%;
+        top: 30em;
+    }
+    
+    .splide__arrow.splide__arrow--next {
+        right: 31%;
+        top: 30em;
     }
 }
