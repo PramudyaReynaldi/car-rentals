@@ -11,7 +11,7 @@ const Navbar = (props) => {
    const { children, className } = props;
    const [ scrollY, setScrollY ] = useState(0);
    const [token, setToken] = useState('');
-
+   
    const navigate = useNavigate();
 
    useEffect(() => {
@@ -32,10 +32,13 @@ const Navbar = (props) => {
       try {
          const response = await axios.get('http://localhost:3000/token');
          setToken(response.data.accessToken);
-         const decoded = jwtDecode (response.data.accessToken);
+         const decoded = jwtDecode(response.data.accessToken);
          console.log(decoded);
       } catch (error) {
-         console.log(error.response.data);   
+         if (error.response) {
+            navigate('/');
+            console.log(error.response.data);
+         }  
       }
    }
 

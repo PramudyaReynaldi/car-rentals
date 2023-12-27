@@ -17,9 +17,11 @@ const LoginPage = () => {
                 password: password,
             });
             showAlertSuccess("Login Successfull", "Anda akan diarahkan ke halaman utama");
+
             setTimeout(() => {
                 navigate("/");
             }, 3000);
+            
         } catch (error) {
             if(error.response) {
                 console.error(error.response.data);
