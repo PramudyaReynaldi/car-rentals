@@ -1,0 +1,33 @@
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJuYW1lIjoiVWRpbiIsImVtYWlsIjoidWRpbkBtYWlsLmNvbSIsImlhdCI6MTcwMzYxMjYwMSwiZXhwIjoxNzAzNjEyNjE2fQ.9tarx46-W_brDPzmfQTRBZCfbytHNapo5r5-BjyeoT4
+
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "Udin",
+    "email": "udin@mail.com",
+    "password": "admin",
+    "confirmPassword": "admin"
+}
+
+
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "udin@mail.com",
+    "password": "admin"
+}
+
+
+###
+GET http://localhost:3000/token
+
+
+###
+DELETE  http://localhost:3000/logout
