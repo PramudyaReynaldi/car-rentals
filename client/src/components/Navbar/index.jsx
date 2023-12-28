@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
-import axios from "axios";
 import logoCar from "../../assets/images/logo_car.png";
 import Button from "../Button";
 
@@ -15,8 +13,6 @@ const Navbar = (props) => {
    const navigate = useNavigate();
 
    useEffect(() => {
-      refreshToken();
-
       window.addEventListener('scroll', handleScrollY);
 
       return () => {
@@ -27,20 +23,6 @@ const Navbar = (props) => {
    const handleScrollY = () => {
       setScrollY(window.scrollY);
    };
-
-   const refreshToken = async () => {
-      try {
-         const response = await axios.get('http://localhost:3000/token');
-         setToken(response.data.accessToken);
-         const decoded = jwtDecode(response.data.accessToken);
-         console.log(decoded);
-      } catch (error) {
-         if (error.response) {
-            navigate('/');
-            console.log(error.response.data);
-         }  
-      }
-   }
 
    const backgroundStyle = {
       background: scrollY < 100 ? 'var(--bg-secondary)' : 'var(--bg-primary)',

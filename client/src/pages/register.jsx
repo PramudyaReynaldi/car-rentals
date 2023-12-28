@@ -4,33 +4,33 @@ import { showAlertSuccess, showAlertError } from "../components/Alert";
 import axios from "axios";
 
 const RegisterPage = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    // const [name, setName] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [confirmPassword, setConfirmPassword] = useState('');
 
     const navigate = useNavigate();
 
-    const handleRegister = async (event) => {
-        event.preventDefault();
-        try {
-            await axios.post("http://localhost:3000/users", {
-                name: name,
-                email: email,
-                password: password,
-                confirmPassword: confirmPassword
-            });
-            showAlertSuccess("Register Successfull", "Anda akan diarahkan ke halaman utama");
-            setTimeout(() => {
-                navigate('/');
-            }, 3000);
-        } catch (error) {
-            if(error.response) {
-                console.log(error.response.data);
-            }
-            showAlertError("Register Failed", "Silahkan coba kembali");
-        }
-    };
+    // const handleRegister = async (event) => {
+    //     event.preventDefault();
+    //     try {
+    //         await axios.post("http://localhost:3000/users", {
+    //             name: name,
+    //             email: email,
+    //             password: password,
+    //             confirmPassword: confirmPassword
+    //         });
+    //         showAlertSuccess("Register Successfull", "Anda akan diarahkan ke halaman utama");
+    //         setTimeout(() => {
+    //             navigate('/');
+    //         }, 3000);
+    //     } catch (error) {
+    //         if(error.response) {
+    //             console.log(error.response.data);
+    //         }
+    //         showAlertError("Register Failed", "Silahkan coba kembali");
+    //     }
+    // };
 
     return (
         <div>
