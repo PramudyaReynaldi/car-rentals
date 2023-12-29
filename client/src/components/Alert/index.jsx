@@ -5,7 +5,8 @@ export const showAlertSuccess = (title, text) => {
         title: title,
         text: text,
         icon: 'success',
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        timer: 2000,
     });
 }
 
@@ -15,5 +16,6 @@ export const showAlertError = (message, button) => {
         text: message,
         icon: 'error',
         confirmButtonText: button,
+        timer: 2000,
     });
 }

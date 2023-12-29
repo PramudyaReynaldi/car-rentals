@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { LogOut, reset } from "../../features/authSlice";
 import logoCar from "../../assets/images/logo_car.png";
 import Button from "../Button";
 
 const Navbar = (props) => {
    const { children, className } = props;
    const [ scrollY, setScrollY ] = useState(0);
-   const [token, setToken] = useState('');
    
    const navigate = useNavigate();
+   const dispatch = useDispatch();
 
    useEffect(() => {
       window.addEventListener('scroll', handleScrollY);
@@ -35,6 +37,13 @@ const Navbar = (props) => {
       { name: "Testimonial", href: "testimonial" },
       { name: "FAQ", href: "faq" },
    ];
+
+   const { user } = useSelector((state) => state.auth);
+
+   const handleLogout = () => {
+      dispatch(LogOut());
+      dispatch(reset());
+   }
 
    return (
       <>
@@ -92,9 +101,23 @@ const Navbar = (props) => {
                               </li>
                            </ul>
                         ))}
-                        <Link to={"/login"} className="text-decoration-none">
-                           <Button>Login</Button>
-                        </Link>
+                        {user && user.role === "user" ? (
+                           // If user is logged in, show logout button
+                           <Button onClick={handleLogout} style={{ cursor: "pointer" }}>
+                              Logout
+                           </Button>
+                        ) : (
+                           // If user is not logged in, show register button
+                           <>
+                              <Link to="/register" className="text-decoration-none mx-2">
+                                 <Button>Register</Button>
+                              </Link>
+
+                              <Link to="/login" className="text-decoration-none">
+                                 <Button>Login</Button>
+                              </Link>
+                           </>
+                        )}
                      </div>
                   </div>
                </div>
