@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import carImage from "../../assets/images/img_car.png";
+import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import { showAlertError } from "../Alert";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../../features/authSlice";
+import axios from "axios";
 
 const Banner = (props) => {
    const { className } = props;
+   const [imageUrl, setImageUrl] = useState(null);
 
    const dispatch = useDispatch();
-   const navigate = useNavigate();
 
    const { user } = useSelector((state) => state.auth);
    const username = user?.name.charAt(0).toUpperCase() + user?.name.slice(1);
@@ -25,6 +25,19 @@ const Banner = (props) => {
          showAlertError("Anda belum login, silahkan login terlebih dahulu!", "Ok");
       } 
    };
+
+   useEffect(() => {
+      getImageBanner();
+   }, []);
+
+   const getImageBanner = async () => {
+      try {
+         const response = await axios.get("http://localhost:5000/images/wdy8lg8uvqk6pofnt1lv");
+         setImageUrl(response.data.imageUrl);
+      } catch (error) {
+         console.log(error);
+      }
+   }
 
    return (
       <div className={`row pt-lg-5 pt-3 ${className}`}>
@@ -58,7 +71,7 @@ const Banner = (props) => {
             )}
          </div>
          <div className="col-lg-6 col-12">
-            <img src={carImage} alt="Car rental" className="img-fluid" />
+            <img src={imageUrl} alt="Car rental" className="img-fluid" />
          </div>
       </div>
    );
