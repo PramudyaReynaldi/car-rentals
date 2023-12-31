@@ -5,6 +5,7 @@ import ServicesComponent from "../components/ServicesComponent";
 import WhyUsCard from "../components/WhyUsCard";
 import Testimonial from "../components/Testimonial";
 import CardBanner from "../components/CardBanner";
+import Faq from "../components/Faq";
 
 const HomePage = () => {
     return (
@@ -34,6 +35,9 @@ const HomePage = () => {
                     </div>
                     <div className="card-banner-content">
                         <CardBanner />
+                    </div>
+                    <div className="faq-content">
+                        <Faq />
                     </div>
                 </div>
             </div>
