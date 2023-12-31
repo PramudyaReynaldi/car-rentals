@@ -71,10 +71,7 @@ const Navbar = (props) => {
                      aria-labelledby="offcanvasScrollingLabel"
                   >
                      <div className="offcanvas-header">
-                        <h5
-                           className="offcanvas-title"
-                           id="offcanvasScrollingLabel"
-                        >
+                        <h5 className="offcanvas-title" id="offcanvasScrollingLabel">
                            Car Rentals
                         </h5>
                         <button
@@ -85,9 +82,9 @@ const Navbar = (props) => {
                         ></button>
                      </div>
                      <div className="offcanvas-body d-lg-flex justify-content-lg-end">
-                        {Links.map((link) => (
-                           <ul key={link.name} className="navbar-nav mx-2">
-                              <li className="nav-item">
+                        <ul className="navbar-nav mx-2">
+                           {Links.map((link) => (
+                              <li className="nav-item" key={link.name}>
                                  <ScrollLink
                                     to={link.href}
                                     smooth={true}
@@ -99,9 +96,9 @@ const Navbar = (props) => {
                                     {link.name}
                                  </ScrollLink>
                               </li>
-                           </ul>
-                        ))}
-                        {user && user.role === "user" ? (
+                           ))}
+                        </ul>
+                        {user && user.name ? (
                            // If user is logged in, show logout button
                            <Button onClick={handleLogout} style={{ cursor: "pointer" }}>
                               Logout
@@ -110,11 +107,11 @@ const Navbar = (props) => {
                            // If user is not logged in, show register button
                            <>
                               <Link to="/register" className="text-decoration-none mx-2">
-                                 <Button>Register</Button>
+                                 <Button styles="text-center w-100 justify-content-center">Register</Button>
                               </Link>
 
                               <Link to="/login" className="text-decoration-none">
-                                 <Button>Login</Button>
+                                 <Button styles="text-center w-100 justify-content-center">Login</Button>
                               </Link>
                            </>
                         )}
