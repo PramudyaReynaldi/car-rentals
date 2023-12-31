@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useLayoutEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginUser, reset } from "../features/authSlice";
+import logoCar from "../assets/images/logo_car.png";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ const LoginPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { user, isLoading, isSuccess, message } = useSelector(
+    const { user, isLoading, isSuccess } = useSelector(
         (state) => state.auth
     );
 
@@ -26,37 +27,76 @@ const LoginPage = () => {
         dispatch(LoginUser({ email, password }));
     }
 
-    return (
-        <div className="container">
-            <div className="d-flex justify-content-center align-items-center vh-100 flex-column">
-                <div className="login-content">
-                    <div className="login-title py-4">
-                        <h1>Login</h1>
-                    </div>
-                    <div className="login-form-wrapper">
-                        <form onSubmit={Auth}>
-                            <div className="mb-3">
-                                <label className="form-label">Email</label>
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="form-control"
-                                />
-                            </div>
+    useLayoutEffect(() => {
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = `
+            @keyframes gradient {
+                0% {
+                background-position: 0% 50%;
+                }
+                50% {
+                background-position: 100% 50%;
+                }
+                100% {
+                background-position: 0% 50%;
+                }
+            }
+        
+            body {
+                background: linear-gradient(-45deg, var(--bg-accent), var(--bg-primary));
+                background-size: 400% 400%;
+                animation: gradient 15s ease infinite;
+            }
+        `;
+    
+        document.body.appendChild(styleTag);
+    
+        return () => {
+          document.body.removeChild(styleTag);
+        };
+    }, []);
 
-                            <div htmlFor="password" className="mb-3">
-                                <label className="form-label">Password</label>
-                                <input
-                                    name="password"
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className="form-control"
-                                />
-                            </div>
-                            <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
-                        </form>
+
+    return (
+        <div className="container-fluid">
+            <div className="row auth-content bg-success text-center">
+                <div className="col-md-4 text-center auth__info">
+                    <img src={logoCar} alt="Car Rentals" />
+                </div>
+                <div className="col-md-8 col-xs-12 col-sm-12 auth_form ">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <h2 className="auth__title">Log In</h2>
+                        </div>
+                        <div className="row">
+                            <form className="form-group" onSubmit={Auth}>
+                                <div className="row">
+                                    <input 
+                                        type="email" 
+                                        name="email" 
+                                        className="form__input" 
+                                        placeholder="example@mail.com"
+                                        onChange={(e) => setEmail(e.target.value)} 
+                                    />
+                                </div>
+                                <div className="row">
+                                    <input 
+                                        type="password" 
+                                        name="password"
+                                        className="form__input" 
+                                        placeholder="Password"
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </div>
+                                
+                                <input type="submit" value={isLoading ? "Loading..." : "Login"} className="button-auth" />
+                            </form>
+                        </div>
+                        <div className="row">
+                            <p>Don't have an account? {" "}
+                                <Link to="/register">Register</Link>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
