@@ -28,8 +28,26 @@ const storage = new CloudinaryStorage ({
     }
 });
 
+const uploadIcon = new CloudinaryStorage ({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'car-rentals/icons',
+        allowedFormats: ['jpg', 'png'],
+        filename: function (req, file, cb) {
+            const timestamp = new Date().toISOString();
+            const originalName = file.originalname;
+            const uniqueFilename = `${timestamp}-${originalName}`;
+            return uniqueFilename;
+        }
+    }
+})
+
 const upload = multer({ 
     storage: storage
 }).single("image");
 
-export default upload;
+const uploadIconDisk = multer({
+    storage: uploadIcon
+}).single("icon");
+
+export { upload, uploadIconDisk };
