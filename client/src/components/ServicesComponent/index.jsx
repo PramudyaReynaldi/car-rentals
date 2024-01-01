@@ -1,8 +1,26 @@
+import React, { useEffect, useState } from "react";
 import ceklisIcon from "../../assets/icons/ceklis.png";
-import imgServices from "../../assets/images/img_service.png";
 import { Element } from "react-scroll";
+import axios from "axios";
 
 const Services = () => {
+   const [imageUrl, setImageUrl] = useState(null);
+
+   useEffect(() => {
+      getImageBanner();
+   });
+
+   const getImageBanner = async () => {
+      try {
+         const response = await axios.get(
+            "http://localhost:5000/images/jfam5cvgszzyveqgebvu"
+         );
+         setImageUrl(response.data.imageUrl);
+      } catch (error) {
+         console.log(error);
+      }
+   }
+
    const Lists = [
       { text: "Sewa Mobil Dengan Supir di Bali 12 Jam" },
       { text: "Sewa Mobil Lepas Kunci di Bali 24 Jam" },
@@ -17,7 +35,7 @@ const Services = () => {
             <div className="row">
                <div className="col-lg-6 col-12">
                   <img
-                     src={imgServices}
+                     src={imageUrl}
                      alt="Our service..."
                      className="img-fluid"
                   />

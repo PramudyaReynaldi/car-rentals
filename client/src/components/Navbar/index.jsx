@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { LogOut, reset } from "../../features/authSlice";
-import logoCar from "../../assets/images/logo_car.png";
+import axios from "axios";
 import Button from "../Button";
 
 const Navbar = (props) => {
    const { children, className } = props;
    const [ scrollY, setScrollY ] = useState(0);
+   const [imageUrl, setImageUrl] = useState(null);
    
-   const navigate = useNavigate();
    const dispatch = useDispatch();
 
    useEffect(() => {
@@ -45,13 +44,26 @@ const Navbar = (props) => {
       dispatch(reset());
    }
 
+   const getImageBanner = async () => {
+      try {
+         const response = await axios.get("http://localhost:5000/images/wgx4hfulbg1ioktbyf9h");
+         setImageUrl(response.data.imageUrl);
+      } catch (error) {
+         console.log(error);
+      }
+   }
+
+   useEffect(() => {
+      getImageBanner();
+   });
+
    return (
       <>
          <div className={className}>
             <nav className="navbar navbar-expand-lg bg-home fixed-top" style={backgroundStyle}>
                <div className="container">
                   <a className="navbar-brand" href="#">
-                     <img src={logoCar} alt="logo_car" className="car-logo" />
+                     <img src={imageUrl} alt="logo_car" className="car-logo" />
                   </a>
                   <button
                      className="navbar-toggler"
