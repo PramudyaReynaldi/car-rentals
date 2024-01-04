@@ -6,6 +6,7 @@
     --primary-color: #000000;
     --secondary-color: #FFFFFF;
     --accent-color: #5CB85F;
+    --form-color: #4A505C;
     
     --border-color: #D0D0D0;
 
@@ -130,76 +131,6 @@ p {
     margin-top: 16px;
 }
 
-.auth-content {
-	width: 50%;
-	border-radius: 20px;
-	box-shadow: 0 5px 5px rgba(0,0,0,.4);
-	margin: 5em auto;
-	display: flex;
-}
-
-.auth__info{
-	background-color: var(--bg-accent);
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	color: #fff;
-}
-
-h2.auth__title {
-	color: var(--accent-color);
-    margin-top: 15px;
-}
-
-.auth_form {
-	background-color: #fff;
-	border-top-right-radius:20px;
-	border-bottom-right-radius:20px;
-	border-top:1px solid #ccc;
-	border-right:1px solid #ccc;
-}
-
-.auth_form form{
-	padding: 0 2em;
-}
-
-.form__input{
-	width: 100%;
-	border:0px solid transparent;
-	border-radius: 0;
-	border-bottom: 1px solid #aaa;
-	padding: 1em .5em .5em;
-	padding-left: 2em;
-	outline:none;
-	margin:1.5em auto;
-	transition: all .5s ease;
-}
-
-.form__input:focus{
-	border-bottom-color: var(--accent-color);
-	box-shadow: 0 0 5px rgba(0,80,80,.4); 
-	border-radius: 4px;
-}
-
-.button-auth {
-	transition: all .5s ease;
-	width: 70%;
-	border-radius: 30px;
-	color: var(--accent-color);
-	font-weight: 600;
-	background: transparent;
-	border: 1px solid var(--accent-color);
-	margin-top: 1.5em;
-	margin-bottom: 1em;
-}
-
-.button-auth:hover, .button-auth:focus{
-	background-color: var(--btn-primary);
-	color: var(--secondary-color);
-}
-
 .faq-text .faq-title {
     font-size: var(--font-subtitle);
     font-weight: var(--font-weight-bold);
@@ -216,6 +147,81 @@ h2.auth__title {
 .accordion-button {
     border-radius: 4px;
 }
+
+.login-banner {
+    background-color: var(--bg-accent);
+    height: 100vh;
+}
+
+.login-banner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-login-title h3 {
+    font-size: var(--font-title);
+}
+
+.card-login-title p {
+    font-size: var(--font-paragraph);
+    color: var(--form-color);
+    font-weight: 400;
+}
+
+.login-form label {
+    color: var(--form-color);
+    font-weight: 600;
+}
+
+.login-form input::placeholder {
+    font-size: var(--font-paragraph);
+    color: gray;
+}
+
+.button-login {
+    background-color: var(--btn-primary);
+    border: none;
+    padding: 7px;
+    width: 100%;
+    color: var(--secondary-color);
+    box-shadow: 0px 4px 8px -4px rgba(58, 53, 65, 0.42);
+    border-radius: 4px;
+}
+
+.button-login-google {
+    border: none;
+    padding: 7px;
+    width: 100%;
+    color: var(--primary-color);
+    box-shadow: 0px 4px 8px -4px rgba(58, 53, 65, 0.42);
+    border-radius: 4px;
+}
+
+.text-or {
+    color: var(--form-color);
+}
+
+.login-content .fa-eye{
+    position: absolute;
+    top: 52%;
+    right: 7%;
+    cursor: pointer;
+    color: lightgray;
+}
+
+.login-content .card {
+    width: 60%;
+}
+
 /* -------------- MEDIA QUERIES ---------------- */
 
 @media screen and (max-width: 991px) {
@@ -243,6 +249,10 @@ h2.auth__title {
 
     .faq-text {
         text-align: center;    
+    }
+
+    .login-content .card {
+        width: 100%;
     }
 }
 
@@ -282,28 +292,9 @@ h2.auth__title {
     }
 }
 
-@media screen and (min-width: 642px) and (max-width:800px){
-	.auth-content{width: 70%;}
-}
-
-@media screen and (max-width: 640px) {
-	.auth-content {
-        width: 90%;
-    }
-
-	.auth__info {
-		display: none;
-	}
-
-	.auth_form{
-		border-top-left-radius:20px;
-		border-bottom-left-radius:20px;
-	}
-}
-
-@media screen and (max-width: 280px) {
-    .form__input {
+@media (min-width: 991px) {
+    .container-auth.container {
+        max-width: 100%;
         padding: 0;
     }
 }
-

@@ -34,14 +34,14 @@ export const RegisterUser = createAsyncThunk(
     "user/RegisterUser",
     async (user, thunkAPI) => {
         try {
-            const response = await axios.post("http://localhost:5000/users", {
+            const response = await axios.post("http://localhost:5000/register", {
                 name: user.name,
                 email: user.email,
                 password: user.password,
                 confPassword: user.confPassword,
                 role: user.role,
             });
-            // showAlertSuccess("Registration Successful", "Anda dapat login sekarang");
+            showAlertSuccess("Registration Successful", "Anda dapat login sekarang");
             return response.data;
         } catch (error) {
             if (error.response) {
