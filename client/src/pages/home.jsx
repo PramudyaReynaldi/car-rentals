@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import ServicesComponent from "../components/ServicesComponent";
@@ -6,26 +6,8 @@ import WhyUsCard from "../components/WhyUsCard";
 import Testimonial from "../components/Testimonial";
 import CardBanner from "../components/CardBanner";
 import Faq from "../components/Faq";
-import axios from "axios";
 
 const HomePage = () => {
-    const [products, setProducts] = useState();
-
-    const getProducts = async () => {
-        try {
-            const response = await axios.get("http://localhost:5000/products");
-            console.log("API Response:", response.data.apiData);
-            setProducts(response.data.apiData);
-
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    useEffect(() => {
-        getProducts();
-    }, []);
-
     return (
         <>
             <div className="bg-home">
@@ -57,18 +39,6 @@ const HomePage = () => {
                     <div className="faq-content">
                         <Faq />
                     </div>
-                </div>
-
-                <div className="products">
-                {products && products.map((product) => (
-                    <div key={product.id} className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">{product.plate}</h5>
-                            <p className="card-text">{product.description}</p>
-                            <img src={product.image} alt={product.name} />
-                        </div>
-                    </div>
-                ))}
                 </div>
             </div>
         </>

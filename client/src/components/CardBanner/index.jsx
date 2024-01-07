@@ -12,7 +12,7 @@ const CardBanner = () => {
         if (!user) {
             showAlertError("Anda harus login terlebih dahulu!", "Ok");
         } else {
-            navigate("/halaman-setelah-login");
+            navigate("/list-cars");
         }
     };
 
