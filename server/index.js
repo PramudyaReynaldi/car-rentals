@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import express from "express";
 import cors from "cors";
 import session from "express-session";
@@ -8,6 +10,9 @@ import UserRoute from "./routes/UserRoute.js";
 import ProductRoute from "./routes/ProductRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import UploadRoute from "./routes/UploadRoute.js";
+import DashboardRoute from "./routes/DashboardRoute.js";
+import path from "path";
+import ejs from "ejs";
 
 dotenv.config();
 
@@ -38,11 +43,19 @@ app.use(cors({
     credentials: true
 }));
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.engine('html', ejs.renderFile);
+
 app.use(express.json());
 app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthRoute);
 app.use(UploadRoute);
+app.use(DashboardRoute)
 
 // store.sync();
 
