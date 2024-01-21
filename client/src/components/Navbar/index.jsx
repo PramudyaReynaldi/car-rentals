@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { LogOut, reset } from "../../features/authSlice";
 import axios from "axios";
 import Button from "../Button";
 
 const Navbar = (props) => {
-   const { children, className } = props;
+   const { children, className, navLinks = [] } = props;
    const [ scrollY, setScrollY ] = useState(0);
    const [imageUrl, setImageUrl] = useState(null);
    
    const dispatch = useDispatch();
+   const navigate = useNavigate();
 
    useEffect(() => {
       window.addEventListener('scroll', handleScrollY);
@@ -30,18 +31,12 @@ const Navbar = (props) => {
       transition: 'background 0.5s',
    };
 
-   const Links = [
-      { name: "Our Services", href: "ourServices" },
-      { name: "Why Us", href: "whyUs" },
-      { name: "Testimonial", href: "testimonial" },
-      { name: "FAQ", href: "faq" },
-   ];
-
    const { user } = useSelector((state) => state.auth);
 
    const handleLogout = () => {
       dispatch(LogOut());
       dispatch(reset());
+      navigate("/");
    }
 
    const getImageBanner = async () => {
@@ -62,7 +57,7 @@ const Navbar = (props) => {
          <div className={className}>
             <nav className="navbar navbar-expand-lg bg-home fixed-top" style={backgroundStyle}>
                <div className="container">
-                  <a className="navbar-brand" href="#">
+                  <a className="navbar-brand" href="/">
                      <img src={imageUrl} alt="logo_car" className="car-logo" />
                   </a>
                   <button
@@ -95,7 +90,7 @@ const Navbar = (props) => {
                      </div>
                      <div className="offcanvas-body d-lg-flex justify-content-lg-end">
                         <ul className="navbar-nav mx-2">
-                           {Links.map((link) => (
+                           {navLinks.map((link) => (
                               <li className="nav-item" key={link.name}>
                                  <ScrollLink
                                     to={link.href}

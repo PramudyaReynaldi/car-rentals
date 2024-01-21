@@ -13,7 +13,12 @@ const HomePage = () => {
             <div className="bg-home">
                 <div className="container">
                     <div className="navbar-home">
-                        <Navbar>
+                        <Navbar navLinks={[
+                            { name: "Our Services", href: "ourServices" },
+                            { name: "Why Us", href: "whyUs" },
+                            { name: "Testimonial", href: "testimonial" },
+                            { name: "FAQ", href: "faq" },
+                        ]}>
                             <div className="banner-home">
                                 <Banner className="mt-5" />
                             </div>
