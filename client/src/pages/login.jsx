@@ -34,9 +34,6 @@ const LoginPage = () => {
                         <div className="login-banner"></div>
                     </div>
                     <div className="col-lg-8 col-12">
-                        <div className="logo-mobile d-lg-none d-flex">
-                            {/* <img src="public/assets/images/logo_mobile.png" alt="Logo" /> */}
-                        </div>
                         <div className="login-form">
                             <div className="card shadow-2-strong">
                                 <div className="card-body">

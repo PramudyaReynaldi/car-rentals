@@ -52,7 +52,7 @@ const Banner = (props) => {
                      kualitas terbaik dengan harga terjangkau. Selalu siap melayani
                      kebutuhanmu untuk sewa mobil selama 24 jam. Klik disini untuk mencari mobil!
                   </div>
-                  <Link to="#!" className="text-decoration-none">
+                  <Link to="/list-cars" className="text-decoration-none">
                      <Button styles="mt-3 mb-lg-0 mb-4">Mulai Sewa Mobil</Button>
                   </Link>
                </>
