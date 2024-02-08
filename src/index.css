@@ -107,7 +107,7 @@ p {
     fill: var(--secondary-color);
 }
 
-.our-service-content, .why-us-content, .testimonial-content, .faq-content {
+.our-service-content, .why-us-content, .testimonial-content, .faq-content, .footer-content {
     padding-top: 5rem;
 }
 

@@ -6,6 +6,8 @@ import WhyUsCard from "../components/WhyUsCard";
 import Testimonial from "../components/Testimonial";
 import CardBanner from "../components/CardBanner";
 import Faq from "../components/Faq";
+import Button from "../components/Button";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
     return (
@@ -20,7 +22,9 @@ const HomePage = () => {
                             { name: "FAQ", href: "faq" },
                         ]}>
                             <div className="banner-home">
-                                <Banner className="mt-5" />
+                                <Banner className="mt-5">
+                                    <Button styles="mt-3 mb-lg-0 mb-4">Mulai Sewa Mobil</Button>
+                                </Banner>
                             </div>
                         </Navbar>
                     </div>
@@ -43,6 +47,9 @@ const HomePage = () => {
                     </div>
                     <div className="faq-content">
                         <Faq />
+                    </div>
+                    <div className="footer-content">
+                        <Footer />
                     </div>
                 </div>
             </div>

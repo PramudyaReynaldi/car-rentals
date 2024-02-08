@@ -2,7 +2,7 @@ import React from "react";
 import HomePage from "./pages/home";
 import RegisterPage from "./pages/register";
 import LoginPage from "./pages/login";
-import ListCars from "./pages/list-cars";
+import ListCarsPage from "./pages/list-cars";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -14,7 +14,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/login" element={<LoginPage />} />
-                    <Route path="/list-cars" element={<ListCars />} />
+                    <Route path="/list-cars" element={<ListCarsPage />} />
                 </Routes>
             </Router>
         </>

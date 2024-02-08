@@ -27,7 +27,7 @@ const Navbar = (props) => {
    };
 
    const backgroundStyle = {
-      background: scrollY < 100 ? 'var(--bg-secondary)' : 'var(--bg-primary)',
+      background: scrollY < 368 ? 'var(--bg-secondary)' : 'var(--bg-primary)',
       transition: 'background 0.5s',
    };
 

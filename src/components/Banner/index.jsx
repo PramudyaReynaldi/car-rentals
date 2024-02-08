@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import Button from "../Button";
 import { showAlertError } from "../Alert";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { getMe } from "../../features/authSlice";
 import axios from "axios";
 
 const Banner = (props) => {
-   const { className } = props;
+   const { className, children } = props;
    const [imageUrl, setImageUrl] = useState(null);
 
    const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const Banner = (props) => {
                      kebutuhanmu untuk sewa mobil selama 24 jam. Klik disini untuk mencari mobil!
                   </div>
                   <Link to="/list-cars" className="text-decoration-none">
-                     <Button styles="mt-3 mb-lg-0 mb-4">Mulai Sewa Mobil</Button>
+                     {children}
                   </Link>
                </>
             ) : (
