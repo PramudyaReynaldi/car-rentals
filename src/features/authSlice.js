@@ -14,7 +14,7 @@ export const LoginUser = createAsyncThunk(
     "user/LoginUser",
     async (user, thunkAPI) => {
         try {
-            const response = await axios.post("http://localhost:5000/login", {
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/login`, {
                 email: user.email,
                 password: user.password,
             });
@@ -34,7 +34,7 @@ export const RegisterUser = createAsyncThunk(
     "user/RegisterUser",
     async (user, thunkAPI) => {
         try {
-            const response = await axios.post("http://localhost:5000/register", {
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/register`, {
                 name: user.name,
                 email: user.email,
                 password: user.password,
@@ -55,7 +55,7 @@ export const RegisterUser = createAsyncThunk(
 
 export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
     try {
-        const response = await axios.get("http://localhost:5000/me");
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/me`);
         const { name, email, role } = response.data;
         return { name, email, role };
     } catch (error) {
@@ -67,7 +67,7 @@ export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
 });
 
 export const LogOut = createAsyncThunk("user/LogOut", async () => {
-    await axios.delete("http://localhost:5000/logout");
+    await axios.delete(`${import.meta.env.VITE_BASE_URL}/logout`);
     showAlertSuccess("Logout Successfull", "Terimakasih sudah mengunjungi website kami");
 });
 

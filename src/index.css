@@ -218,8 +218,16 @@ p {
     color: lightgray;
 }
 
+.register-form .fa-eye {
+    position: absolute;
+    top: 57.5%;
+    right: 7%;
+    cursor: pointer;
+    color: lightgray;
+}
+
 .login-content .card {
-    width: 60%;
+    width: 38%;
 }
 
 /* -------------- MEDIA QUERIES ---------------- */

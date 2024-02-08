@@ -32,7 +32,7 @@ const Banner = (props) => {
 
    const getImageBanner = async () => {
       try {
-         const response = await axios.get("http://localhost:5000/images/wdy8lg8uvqk6pofnt1lv");
+         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/images/wdy8lg8uvqk6pofnt1lv`);
          setImageUrl(response.data.imageUrl);
       } catch (error) {
          console.log(error);
