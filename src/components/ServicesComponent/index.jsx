@@ -13,7 +13,7 @@ const Services = () => {
    const getImageBanner = async () => {
       try {
          const response = await axios.get(
-            `${import.meta.env.VITE_BASE_URL}/images/jfam5cvgszzyveqgebvu`
+            `${import.meta.env.VITE_BASE_URL}/api/v1/images/jfam5cvgszzyveqgebvu`
          );
          setImageUrl(response.data.imageUrl);
       } catch (error) {

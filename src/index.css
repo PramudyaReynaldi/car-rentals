@@ -71,7 +71,7 @@ p {
     border: 1px solid var(--border-color);
     height: 100%;
     border-radius: 8px;
-    padding: 8px 10px;
+    padding: 16px 14px;
 }
 
 .why-us-card h5 {
@@ -91,6 +91,7 @@ p {
 .user-testimonials {
     background-color: var(--bg-secondary);
     max-width: 619px;
+    height: 100%;
 }
 
 .user-testimonials-mobile {
@@ -230,9 +231,26 @@ p {
     width: 38%;
 }
 
+.connect-us-icons {
+    display: flex;
+    gap: 4%;
+}
+
 /* -------------- MEDIA QUERIES ---------------- */
 
-@media screen and (max-width: 991px) {
+@media (max-width: 1025px) {
+    .splide__arrow.splide__arrow--prev {
+        left: 40%;
+        top: 26em;
+    }
+    
+    .splide__arrow.splide__arrow--next {
+        right: 40%;
+        top: 26em;
+    }
+}
+
+@media (max-width: 991px) {
     .list-services{
         padding-left: 20px;
     }    
@@ -264,39 +282,21 @@ p {
     }
 }
 
-@media screen and (max-width: 355px) {
-    .splide__arrow.splide__arrow--prev {
-        left: 29%;
-        top: 27em;
-    }
-    
-    .splide__arrow.splide__arrow--next {
-        right: 31%;
-        top: 27em;
+@media (max-width: 431px) {
+    .splide__arrow.splide__arrow--prev, .splide__arrow.splide__arrow--next {
+        top: 30em;
     }
 }
 
-@media screen and (max-width: 335px) {
-    .splide__arrow.splide__arrow--prev {
-        left: 29%;
-        top: 29em;
-    }
-    
-    .splide__arrow.splide__arrow--next {
-        right: 31%;
-        top: 29em;
+@media (max-width: 415px) {
+    .splide__arrow.splide__arrow--prev, .splide__arrow.splide__arrow--next {
+        top: 31em;
     }
 }
 
-@media screen and (max-width: 335px) {
-    .splide__arrow.splide__arrow--prev {
-        left: 29%;
-        top: 30em;
-    }
-    
-    .splide__arrow.splide__arrow--next {
-        right: 31%;
-        top: 30em;
+@media (max-width: 376px) {
+    .splide__arrow.splide__arrow--prev, .splide__arrow.splide__arrow--next {
+        top: 32em;
     }
 }
 

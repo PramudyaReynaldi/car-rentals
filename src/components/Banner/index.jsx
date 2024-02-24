@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import { showAlertError } from "../Alert";
 import { Link } from "react-router-dom";
@@ -6,14 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../../features/authSlice";
 import axios from "axios";
 
-const Banner = (props) => {
-   const { className, children } = props;
+const Banner = ({ className, children, description, title }) => {
    const [imageUrl, setImageUrl] = useState(null);
 
    const dispatch = useDispatch();
 
    const { user } = useSelector((state) => state.auth);
-   const username = user?.name.charAt(0).toUpperCase() + user?.name.slice(1);
 
    useEffect(() => {
       dispatch(getMe());
@@ -32,7 +30,7 @@ const Banner = (props) => {
 
    const getImageBanner = async () => {
       try {
-         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/images/wdy8lg8uvqk6pofnt1lv`);
+         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/images/wdy8lg8uvqk6pofnt1lv`);
          setImageUrl(response.data.imageUrl);
       } catch (error) {
          console.log(error);
@@ -44,17 +42,9 @@ const Banner = (props) => {
          <div className="col-lg-6 col-12 mt-lg-4 mt-0">
             {user ? (
                <>
-                  <div className="text-title fw-semibold">
-                     Selamat Datang {username}!
-                  </div>
-                  <div className="text-paragraph mt-3">
-                     Selamat datang di Car Rental kami {username}, kami menyediakan mobil
-                     kualitas terbaik dengan harga terjangkau. Selalu siap melayani
-                     kebutuhanmu untuk sewa mobil selama 24 jam. Klik disini untuk mencari mobil!
-                  </div>
-                  <Link to="/list-cars" className="text-decoration-none">
-                     {children}
-                  </Link>
+                  <div className="text-title fw-semibold">{title}</div>
+                  <div className="text-paragraph mt-3">{description}</div>
+                  <Link to="/list-cars" className="text-decoration-none">{children}</Link>
                </>
             ) : (
                <>

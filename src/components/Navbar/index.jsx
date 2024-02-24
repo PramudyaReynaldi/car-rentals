@@ -41,7 +41,7 @@ const Navbar = (props) => {
 
    const getImageBanner = async () => {
       try {
-         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/images/wgx4hfulbg1ioktbyf9h`);
+         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/images/wgx4hfulbg1ioktbyf9h`);
          setImageUrl(response.data.imageUrl);
       } catch (error) {
          console.log(error);

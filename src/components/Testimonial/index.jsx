@@ -24,7 +24,7 @@ const Testimonial = () => {
    useEffect(() => {
       const getImageTestimonial = async (id) => {
          try {
-            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/images/${id}`);
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/images/${id}`);
             setImages((prevImages) => [...prevImages, response.data.imageUrl]);
          } catch (error) {
             console.log(error);

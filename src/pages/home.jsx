@@ -8,8 +8,12 @@ import CardBanner from "../components/CardBanner";
 import Faq from "../components/Faq";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
+    const { user } = useSelector((state) => state.auth);
+    const username = user?.name.charAt(0).toUpperCase() + user?.name.slice(1);
+
     return (
         <>
             <div className="bg-home">
@@ -22,7 +26,15 @@ const HomePage = () => {
                             { name: "FAQ", href: "faq" },
                         ]}>
                             <div className="banner-home">
-                                <Banner className="mt-5">
+                                <Banner 
+                                    className="mt-5"
+                                    title={`Selamat Datang Di Rental Kami ${username}!`}
+                                    description={
+                                        ` Selamat datang di Car Rental kami ${username}, kami menyediakan mobil
+                                        kualitas terbaik dengan harga terjangkau. Selalu siap melayani
+                                        kebutuhanmu untuk sewa mobil selama 24 jam. Klik disini untuk mencari mobil!`
+                                    }
+                                >
                                     <Button styles="mt-3 mb-lg-0 mb-4">Mulai Sewa Mobil</Button>
                                 </Banner>
                             </div>
