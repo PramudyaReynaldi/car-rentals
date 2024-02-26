@@ -56,8 +56,7 @@ export const RegisterUser = createAsyncThunk(
 export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
     try {
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/me`);
-        const { name, email, role } = response.data;
-        return { name, email, role };
+        return response.data
     } catch (error) {
         if (error.response) {
             const message = error.response.data.msg;
@@ -105,8 +104,7 @@ export const authSlice = createSlice({
             state.isLoading = false;
             state.isError = true;
             state.message = action.payload;
-            state.user = null;
-        });
+        })
 
         // Register User
         builder.addCase(RegisterUser.pending, (state) => {

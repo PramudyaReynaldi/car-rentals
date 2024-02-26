@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginUser, reset } from "../features/authSlice";
+import { LoginUser } from "../features/authSlice";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -16,7 +16,6 @@ const LoginPage = () => {
 
     useEffect(() => {
         if(user || isSuccess) {
-            dispatch(reset());
             navigate("/");
         }
     }, [user, isSuccess, navigate, dispatch]);

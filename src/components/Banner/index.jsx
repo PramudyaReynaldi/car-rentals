@@ -14,7 +14,9 @@ const Banner = ({ className, children, description, title }) => {
    const { user } = useSelector((state) => state.auth);
 
    useEffect(() => {
-      dispatch(getMe());
+      if (user) {
+         dispatch(getMe());
+      }
    }, [dispatch]);
 
    const handleLogin = (event) => {
