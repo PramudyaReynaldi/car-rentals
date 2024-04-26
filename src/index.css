@@ -211,7 +211,7 @@ p {
     color: var(--form-color);
 }
 
-.login-content .fa-eye{
+.login-content .fa-eye, .fa-eye-slash {
     position: absolute;
     top: 52%;
     right: 7%;
@@ -234,6 +234,10 @@ p {
 .connect-us-icons {
     display: flex;
     gap: 4%;
+}
+
+.card-list-cars {
+    padding: 24px;
 }
 
 /* -------------- MEDIA QUERIES ---------------- */

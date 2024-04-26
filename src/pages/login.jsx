@@ -25,6 +25,19 @@ const LoginPage = () => {
         dispatch(LoginUser({ email, password }));
     }
 
+    const toggleShowPassword = () => {
+        const passwordInput = document.getElementById('password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            document.querySelector('#eye').classList.remove('fa-eye');
+            document.querySelector('#eye').classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            document.querySelector('#eye').classList.remove('fa-eye-slash');
+            document.querySelector('#eye').classList.add('fa-eye');
+        }
+    }
+
     return (
         <div className="container-auth container">
             <div className="login-content">
@@ -49,13 +62,14 @@ const LoginPage = () => {
                     
                                 <div className="form-outline mb-4">
                                     <label className="form-label">Password</label>
-                                    <input 
+                                    <input
+                                        id="password"
                                         type="password" 
                                         placeholder="Masukan Kata Sandi"
                                         className="form-control form-control-lg"
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
-                                    <i className="fa-solid fa-eye" id="eye"></i>
+                                    <i className="fa-solid fa-eye" id="eye" onClick={toggleShowPassword}></i>
                                 </div>
                     
                                 <button className="button-login" type="submit">{isLoading ? "Loading..." : "Login"}</button>

@@ -2,22 +2,13 @@ import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import { showAlertError } from "../Alert";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getMe } from "../../features/authSlice";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 const Banner = ({ className, children, description, title }) => {
    const [imageUrl, setImageUrl] = useState(null);
-
-   const dispatch = useDispatch();
-
+   
    const { user } = useSelector((state) => state.auth);
-
-   useEffect(() => {
-      if (user) {
-         dispatch(getMe());
-      }
-   }, [dispatch]);
 
    const handleLogin = (event) => {
       event.preventDefault();

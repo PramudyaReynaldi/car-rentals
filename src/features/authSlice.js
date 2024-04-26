@@ -8,6 +8,7 @@ const initialState = {
     isSuccess: false,
     isLoading: false,
     message: "",
+    isLoggedIn: false,
 };
 
 export const LoginUser = createAsyncThunk(
@@ -83,6 +84,7 @@ export const authSlice = createSlice({
         builder.addCase(LoginUser.fulfilled, (state, action) => {
             state.isLoading = false;
             state.isSuccess = true;
+            state.isLoggedIn = true;
             state.user = action.payload;
         });
         builder.addCase(LoginUser.rejected, (state, action) => {
@@ -120,6 +122,12 @@ export const authSlice = createSlice({
             state.isError = true;
             state.message = action.payload;
         });
+
+        // Logout User
+        builder.addCase(LogOut.fulfilled, (state) => {
+            state.user = null;
+            state.isLoggedIn = false;
+        })
     },
 });
 

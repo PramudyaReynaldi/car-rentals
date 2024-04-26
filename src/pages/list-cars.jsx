@@ -1,8 +1,23 @@
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import ListCars from "../components/ListCars";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { showAlertError } from "../components/Alert";
 
 const ListCarsPage = () => {
+    const isLoggedIn = useSelector((state) => state.auth.user);
+    const navigate = useNavigate()
+
+    // Membuat validasi jika user belum login, maka ketika hit halaman ini, akan diarahkan ke halaman login
+    useEffect(() => {
+        if(!isLoggedIn) {
+            showAlertError("Anda harus login terlebih dahulu!", "Ok");
+            navigate("/login");
+        }
+    })
+
     return (
         <>
             <div className="navbar-home">
