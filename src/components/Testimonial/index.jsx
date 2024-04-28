@@ -55,28 +55,30 @@ const Testimonial = () => {
 
    const renderMobileView = () => {
       return (
-         <Splide
-            options={{
-               rewind: true,
-               perPage: 1,
-               type: "loop",
-               pagination: false,
-            }}
-            aria-label="testimonialSlider"
-         >
-            {usersTestimonials.map((user, idx) => (
-               <SplideSlide key={idx}>
-                  <div className="user-testimonials-mobile">
-                     <div className="d-flex flex-column justify-content-center align-items-center">
-                        <img src={images[idx]} className="img-fluid rounded-circle" width={80} alt={`testimonial-${idx + 1}`} />
-                        <img src={iconRate} className="img-fluid mt-3" alt="rate-icon" />
-                        <p className="pt-3">{user.description}</p>
-                        <p className="fw-bold">{user.name}</p>
+         <div className="testimonial-content">
+            <Splide
+               options={{
+                  rewind: true,
+                  perPage: 1,
+                  type: "loop",
+                  pagination: false,
+               }}
+               aria-label="testimonialSlider"
+            >
+               {usersTestimonials.map((user, idx) => (
+                  <SplideSlide key={idx}>
+                     <div className="user-testimonials-mobile">
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                           <img src={images[idx]} className="img-fluid rounded-circle" width={80} alt={`testimonial-${idx + 1}`} />
+                           <img src={iconRate} className="img-fluid mt-3" alt="rate-icon" />
+                           <p className="pt-3">{user.description}</p>
+                           <p className="fw-bold">{user.name}</p>
+                        </div>
                      </div>
-                  </div>
-               </SplideSlide>
-            ))}
-         </Splide>
+                  </SplideSlide>
+               ))}
+            </Splide>
+         </div>
       );
    };
 

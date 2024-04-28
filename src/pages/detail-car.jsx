@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Container } from "react-bootstrap";
 import Navbar from "../components/Navbar";
-import Banner from "../components/Banner";
+import Footer from "../components/Footer";
 
 const DetailCarPage = () => {
     const { id } = useParams();
@@ -23,12 +24,14 @@ const DetailCarPage = () => {
     }, [id]);
 
     return (
-        <>
-            {car && (
-                <p>{car.model}</p>
-            )}
-
-
+        <> 
+            <Container>
+                <Navbar />
+                    {car && (
+                        <p>{car.model}</p>
+                    )}
+                <Footer />
+            </Container>
         </>
     )
 }

@@ -54,7 +54,7 @@ const Navbar = (props) => {
 
    return (
       <>
-         <div className={className}>
+         <header>
             <nav className="navbar navbar-expand-lg bg-home fixed-top" style={backgroundStyle}>
                <div className="container">
                   <a className="navbar-brand" href="/">
@@ -126,8 +126,8 @@ const Navbar = (props) => {
                   </div>
                </div>
             </nav>
-            {children}
-         </div>
+         </header>
+         {children}
       </>
    );
 };

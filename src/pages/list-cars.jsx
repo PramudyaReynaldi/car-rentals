@@ -5,6 +5,7 @@ import ListCars from "../components/ListCars";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showAlertError } from "../components/Alert";
+import Footer from "../components/Footer";
 
 const ListCarsPage = () => {
     const isLoggedIn = useSelector((state) => state.auth.user);
@@ -40,6 +41,7 @@ const ListCarsPage = () => {
             <div className="mt-5">
                 <ListCars />
             </div>
+            <Footer />
         </>
     );
 };

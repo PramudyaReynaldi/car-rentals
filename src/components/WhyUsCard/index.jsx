@@ -30,7 +30,7 @@ const WhyUsCard = () => {
 
     return (
         <>
-            <Element id="whyUs">
+            <Element id="whyUs" className="why-us-content">
                 <div className="row mt-5">
                     <div className="why-us-title py-4">
                         <h3 className="text-subtitle fw-semibold">Why Us?</h3>

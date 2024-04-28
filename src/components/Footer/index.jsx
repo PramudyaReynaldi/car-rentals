@@ -46,7 +46,7 @@ const Footer = () => {
     ]
 
     return (
-        <footer>
+        <footer className="footer-content">
             <div className="row" style={{ gap: "50px" }}>
                 <div className="col-lg-3 col-12">
                     <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>

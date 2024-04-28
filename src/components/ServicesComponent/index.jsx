@@ -31,7 +31,7 @@ const Services = () => {
 
    return (
       <>
-         <Element name="ourServices">
+         <Element name="ourServices" className="our-service-content">
             <div className="row">
                <div className="col-lg-6 col-12">
                   <img

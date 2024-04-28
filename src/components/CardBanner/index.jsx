@@ -17,7 +17,7 @@ const CardBanner = () => {
     };
 
     return (
-        <div className="container">
+        <div className="card-banner-content">
             <div className="card-banner">
                 <div className="card-banner-wrapper">
                     <div className="card-banner-text">
